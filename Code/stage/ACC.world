@@ -1,0 +1,79 @@
+# populated world for Vehicle robot
+
+include "map.inc"
+include "vehicle.inc"
+include "line.inc"
+
+
+# configure the GUI window
+window
+( 
+	size [700.000 700.000] 
+	scale 35
+	show_data 1
+)
+
+
+# load an environment bitmap
+#floorplan
+#(
+#	bitmap "./bitmaps/cave.png" 
+#	size [15 15 1.5]
+#)
+
+vehicle
+(
+	name "vehicle1" 
+	pose [-5 -3 0 0] 
+	color "green"
+	
+	#to control vehicle
+	ctrl "../stage/map.so"
+
+	# report error-free position in world coordinates
+	localization "gps"
+	localization_origin [ 0 0 0 0 ]
+)
+
+line
+(
+	name "line1"
+	pose [-3 -3 0 0]
+	color "black"
+)
+
+position
+(
+   color "grey30"
+   
+   size [0.5 0.5 0.5]
+   pose [-3 -3 1 0]
+   bitmap "./bitmaps/circle.png"
+
+   ranger_return 1
+   sonar_return 1
+   obstacle_return 0
+   gripper_return 1
+)
+
+position
+(
+   color "grey30"
+   
+   size [0.5 0.5 0.5]
+   pose [4.5 -1 1 0]
+   bitmap "./bitmaps/circle.png"
+
+   ranger_return 1
+   sonar_return 1
+   obstacle_return 0
+   gripper_return 1
+)
+
+line
+(
+	name "line2"
+	pose [4.34 -1.13 0 30]
+	color "black"
+)
+
